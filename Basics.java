@@ -1,4 +1,9 @@
- // A private field or method cannot be accessed from outside the class.
+// // class = object + method (an object can be accessed only through a method)
+// // Syntax
+// // class_name object_name = new class_name();
+// // object_name.class_variable = value;
+
+// A private field or method cannot be accessed from outside the class.
 // To access or modify private fields, you typically use getter and setter methods.
 // It prevents unintended or unauthorized manipulation of data.
 
