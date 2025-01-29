@@ -1442,3 +1442,75 @@ public class Main {
         scanner.close();
     }
 }
+
+class ClassName {
+    // Fields
+    DataType variable1;
+    DataType variable2;
+
+    // Constructor
+    ClassName(DataType var1, DataType var2) {
+        this.variable1 = var1;
+        this.variable2 = var2;
+    }
+
+    // Method to display data
+    void display() {
+        System.out.println(variable1 + " " + variable2);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Creating an array of objects
+        ClassName[] array = new ClassName[3];
+
+        // Initializing objects
+        array[0] = new ClassName(value1, value2);
+        array[1] = new ClassName(value3, value4);
+        array[2] = new ClassName(value5, value6);
+
+        // Displaying object data
+        for (int i = 0; i < array.length; i++) {
+            array[i].display();
+        }
+    }
+}
+ // Program for array of objects
+// Class representing a food item
+class FoodItem {
+    private String name;
+    private double price;
+    private int quantity;
+
+    // Constructor
+    FoodItem(String name, double price, int quantity) {
+        this.name = name;
+        this.price = price;
+        this.quantity = quantity;
+    }
+
+    // Method to display food item details
+    void display() {
+        System.out.println("Food: " + name + " | Price: ₹" + price + " | Quantity: " + quantity);
+    }
+}
+
+// Main class
+public class FoodCart {
+    public static void main(String[] args) {
+        // Creating an array of FoodItem objects
+        FoodItem[] cart = new FoodItem[3];
+
+        // Initializing objects
+        cart[0] = new FoodItem("Burger", 120.50, 2);
+        cart[1] = new FoodItem("Pizza", 250.75, 1);
+        cart[2] = new FoodItem("Pasta", 180.00, 3);
+
+        // Displaying food items
+        System.out.println("Food Cart Items:");
+        for (int i = 0; i < cart.length; i++) {
+            cart[i].display();
+        }
+    }
+}
