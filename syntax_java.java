@@ -2,11 +2,6 @@
 // Scanner sc = new Scanner(System.in);
 // int variable = sc.nextInt();
 
-
-
-
-
-
 // methods in java
 public class Example {
     // A function that returns the sum of two numbers
