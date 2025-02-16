@@ -9,6 +9,7 @@
 // }
 
 // constructor name is always equal to class name
+// constructor should be present inside the class just like a method
 
 
 // Example 1
