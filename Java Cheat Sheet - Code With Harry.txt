@@ -661,7 +661,7 @@ int[2][3] matrix = {
 Methods
 Methods are used to divide an extensive program into smaller pieces. It can be called multiple times to provide reusability to the program.
 
-Declaration
+Declarations
 Declaration of a method
 
 returnType methodName(parameters) {
