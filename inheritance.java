@@ -125,3 +125,38 @@ public class inheritance {
         rose1.roseDetails();     // From Rose
     }
 }
+
+
+// Example 3
+// Since car extends vehicle, it must explicitly call the superclass constructor (super(...))
+
+class Vehicle {
+    String name;
+    int id;
+
+    Vehicle(String name, int id) {
+        this.name = name;
+        this.id = id;
+    }
+
+    void display() {
+        System.out.println("Vehicle Name: " + name + ", ID: " + id);
+    }
+}
+
+class Car extends Vehicle {
+    Car(String name, int id) {
+        super(name, id); // Calls the constructor of Vehicle
+    }
+}
+
+public class AbstractionExample {
+    public static void main(String[] args) {
+        Vehicle v1 = new Vehicle("BMW", 5);
+        v1.display();  // Correct method call
+
+        Car c1 = new Car("Audi", 10);
+        c1.display();  // Inherited method
+    }
+}
+
