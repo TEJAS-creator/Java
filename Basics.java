@@ -34,7 +34,6 @@
 // Objects interact with each other through methods.
 // Created using the new keyword.
 
-QSyntax for class
 class ClassName {
     // Fields
     dataType fieldName;
@@ -90,6 +89,8 @@ public class Main {
 }
 
 
+
+
 import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
@@ -108,6 +109,9 @@ public class Main {
         System.out.print("Total pay: " + total);
     }
 }
+
+
+
 
 import java.util.Scanner;
 public class Main {
@@ -161,6 +165,10 @@ public class Main {
         System.out.println("Value of y3 (int after casting): " + y3);
     }
 }
+
+
+
+
 
 import java.util.Scanner;
 public class Main {
@@ -236,6 +244,10 @@ public class Main {
     }
 }
 
+
+
+
+
 import java.util.Scanner;
 
 public class Main {
@@ -308,6 +320,10 @@ public class Main {
         }
     }
 }
+
+
+
+
 
 import java.util.Scanner;
 class Main {
@@ -384,6 +400,10 @@ class Main {
     }
 }
 
+
+
+
+
 import java.util.*;
 public class Main {
     public static void main(String[] args) {
@@ -407,6 +427,10 @@ public class Main {
         System.out.println("The total cost is: "+cost);
     }
 }
+
+
+
+
 
 import java.util.*;
 public class Main {
@@ -436,16 +460,29 @@ public class Main {
     }
 }
 
+
+
+
+
 import java.util.*;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.print("Enter your year of birth: ");
         Scanner s = new Scanner(System.in);
-        int birth = s.nextInt();
-        int retire = birth + 60;
-        System.out.println("You will retire in the year: " + retire);
+        System.out.print("Enter your day of birth: ");
+        int day = s.nextInt();
+        System.out.print("Enter your month of birth: ");
+        int month = s.nextInt();
+        System.out.print("Enter your year of birth: ");
+        int birthYear = s.nextInt();
+        int retireYear = birthYear + 60;
+        System.out.println("You will retire on: " + day + "-" + month + "-" + retireYear);
     }
 }
+
+
+
+
 
 import java.util.Scanner;
 public class Main {
@@ -470,6 +507,9 @@ public class Main {
         // scanner.close();
     }
 }
+
+
+
 
 import java.util.*;
 public class Main {
@@ -499,6 +539,10 @@ public class Main {
         sc.close();
     }
 }
+
+
+
+
 
 class STUDENT{
     String name;
@@ -535,6 +579,10 @@ public class Main {
         student.compute();
     }
 }
+
+
+
+
 
 import java.util.*;
 
@@ -595,6 +643,10 @@ public class Main {
     }
 }
 
+
+
+
+
 import java.util.Random;
 
 // Define the Die class
@@ -640,6 +692,10 @@ public class Main {
         System.out.println("Sum of both dice: " + (side1 + side2));
     }
 }
+
+
+
+
 
 import java.util.Scanner;
 class Mixer {
@@ -725,6 +781,10 @@ public class Main {
     }
 }
 
+
+
+
+
 class STUDENT {
     private String name;
     private int rollNo;
@@ -766,6 +826,10 @@ public class Main {
     }
 }
 
+
+
+
+
 class EMPLOYEE{
     private String name;
     int id;
@@ -806,6 +870,9 @@ public class Main {
         emp2.display();
     }
 }
+
+
+
 
 
 // rate of interest is declared as static to make it common for all instances of the class
@@ -892,6 +959,10 @@ public class Main {
         account2.display();
     }
 }
+
+
+
+
 
 class Student {
     // Fields for Student class
@@ -989,6 +1060,9 @@ public class Main {
 }
 
 
+
+
+
 class Employee {
     // Fields for Employee class
     private String eName;
@@ -1022,7 +1096,7 @@ class Employee {
             departments[i].displayDepartmentDetails();
         }
     }
-
+    
     // Inner Department class
     class Department {
         private String departmentName;
@@ -1062,6 +1136,9 @@ public class Main {
         employee.displayEmployeeDetails();
     }
 }
+
+
+
 
 
 import java.util.*;
@@ -1149,6 +1226,9 @@ public class Main {
 }
 
 
+
+
+
 class Weather {
 
     // Static nested class Forecast
@@ -1192,6 +1272,9 @@ class Weather {
         displayForecast("Sydney", 28, 30);   // Sunny
     }
 }
+
+
+
 
 
 import java.util.Scanner;
@@ -1273,6 +1356,9 @@ public class StringOperations {
 }
 
 
+
+
+
 import java.util.Scanner;
 
 class Employee {
@@ -1346,6 +1432,9 @@ public class Main {
         scanner.close();
     }
 }
+
+
+
 
 
 import java.util.*;
@@ -1443,6 +1532,9 @@ public class Main {
     }
 }
 
+
+
+
 class ClassName {
     // Fields
     DataType variable1;
@@ -1476,6 +1568,10 @@ public class Main {
         }
     }
 }
+
+
+
+
  // Program for array of objects
 // Class representing a food item
 class FoodItem {
