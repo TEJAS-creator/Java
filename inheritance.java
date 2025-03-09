@@ -57,16 +57,13 @@ public class inheritance{
 
 
 // 2. Multi-Level Inheritance 
-
 // Base Class (Parent)
 class Plants {
     String name;
-    int num;
 
     // Constructor
-    Plants(String name, int num) {
+    Plants(String name) {
         this.name = name;
-        this.num = num;
     }
 
     void feature() {
@@ -84,8 +81,8 @@ class FloweringPlants extends Plants {
     boolean hasFlowers;
 
     // Constructor
-    FloweringPlants(String name, int num, boolean hasFlowers) {
-        super(name, num); // Calls the constructor of the parent class (Plants)
+    FloweringPlants(String name,boolean hasFlowers) {
+        super(name); // Calls the constructor of the parent class (Plants)
         this.hasFlowers = hasFlowers;
     }
 
@@ -103,20 +100,20 @@ class Rose extends FloweringPlants {
     String color;
 
     // Constructor
-    Rose(String name, int num, boolean hasFlowers, String color) {
-        super(name, num, hasFlowers); // Calls the constructor of FloweringPlants
+    Rose(String name, boolean hasFlowers, String color) {
+        super(name,hasFlowers); // Calls the constructor of FloweringPlants
         this.color = color;
     }
 
     void roseDetails() {
-        System.out.println(name + " is a " + color + " rose.");
+        System.out.println(name + " is a " + color + " coloured plant.");
     }
 }
 
 // Main Class
 public class inheritance {
     public static void main(String[] args) {
-        Rose rose1 = new Rose("Rose", 2, true, "Red");
+        Rose rose1 = new Rose("Rose",true, "Red");
         
         // Accessing methods from all three levels
         rose1.feature();         // From Plants
@@ -125,7 +122,6 @@ public class inheritance {
         rose1.roseDetails();     // From Rose
     }
 }
-
 
 // Example 3
 // Since car extends vehicle, it must explicitly call the superclass constructor (super(...))
