@@ -1,10 +1,12 @@
+import java.util.Scanner;
+
 class Student {
     String name;
     int rollNo;
     double marks;
 
     // Constructor
-    public Student(String name, int rollNo, double marks) {
+    Student(String name, int rollNo, double marks) {
         this.name = name;
         this.rollNo = rollNo;
         this.marks = marks;
@@ -16,20 +18,36 @@ class Student {
     }
 }
 
-public class StudentArray {
+public class main {
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // Ask the user how many students
+        System.out.print("Enter number of students: ");
+        int n = sc.nextInt();
+
         // Creating an array of Student objects
-        Student[] students = new Student[3];
-        
-        // Initializing the student objects
-        students[0] = new Student("Alice", 101, 85.5);
-        students[1] = new Student("Bob", 102, 90.0);
-        students[2] = new Student("Charlie", 103, 78.2);
-        
-        // Displaying student details
-        System.out.println("Student Details:");
-        for (Student i : students) {
-            i.display();
+        Student students[] = new Student[n];
+
+        // Initializing the student objects with user input
+        for (int i = 0; i < n; i++) {
+            System.out.println("Enter details for student " + (i + 1) + ":");
+            System.out.print("Name: ");
+            String name = sc.next();
+            System.out.print("Roll No: ");
+            int rollNo = sc.nextInt();
+            System.out.print("Marks: ");
+            double marks = sc.nextDouble();
+
+            students[i] = new Student(name, rollNo, marks);
         }
+
+        // Displaying student details
+        System.out.println("\nStudent Details:");
+        for (Student student : students) {
+            student.display();
+        }
+
+        sc.close();
     }
 }
