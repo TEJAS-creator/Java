@@ -1610,3 +1610,352 @@ public class FoodCart {
         }
     }
 }
+
+
+
+// Inheritance and Polymorphism
+import java.util.*;
+
+// Base class
+class Student {
+    String name;
+    int totalMarks;
+    int numberOfSubjects;
+
+    public Student(String name, int totalMarks, int numberOfSubjects) {
+        this.name = name;
+        this.totalMarks = totalMarks;
+        this.numberOfSubjects = numberOfSubjects;
+    }
+
+    public void compute() {
+        double average = (double) totalMarks / numberOfSubjects;
+        System.out.println("Student Name: " + name);
+        System.out.println("Total Marks: " + totalMarks);
+        System.out.println("Average Marks: " + average);
+    }
+}
+
+// ScienceStudent subclass
+class ScienceStudent extends Student {
+    int practicalMarks;
+
+    public ScienceStudent(String name, int totalMarks, int numberOfSubjects, int practicalMarks) {
+        super(name, totalMarks, numberOfSubjects); // Call parent constructor
+        this.practicalMarks = practicalMarks;
+    }
+
+    @Override
+    public void compute() {
+        int total = totalMarks + practicalMarks;
+        double average = (double) total / (numberOfSubjects + 1); // +1 for practical subject
+        System.out.println("Science Student Name: " + name);
+        System.out.println("Total Marks (including practical): " + total);
+        System.out.println("Average Marks: " + average);
+    }
+
+    public void displayPracticalMarks() {
+        System.out.println("Practical Marks: " + practicalMarks);
+    }
+}
+
+// ArtsStudent subclass
+class ArtsStudent extends Student {
+    String electiveSubject;
+
+    public ArtsStudent(String name, int totalMarks, int numberOfSubjects, String electiveSubject) {
+        super(name, totalMarks, numberOfSubjects);
+        this.electiveSubject = electiveSubject;
+    }
+
+    public void displayElectiveSubject() {
+        System.out.println("Elective Subject: " + electiveSubject);
+    }
+}
+
+// Main class
+public class Main {
+    public static void main(String[] args) {
+        // Create Student object
+        Student student = new Student("General Student", 400, 5);
+        student.compute();
+        System.out.println();
+
+        // Create ScienceStudent object
+        ScienceStudent sciStudent = new ScienceStudent("Tejas", 450, 5, 40);
+        sciStudent.compute();
+        sciStudent.displayPracticalMarks();
+        System.out.println();
+
+        // Create ArtsStudent object
+        ArtsStudent artsStudent = new ArtsStudent("Nisha", 430, 5, "Psychology");
+        artsStudent.compute();
+        artsStudent.displayElectiveSubject();
+        System.out.println();
+
+        // Dynamic Polymorphism
+        Student ref;
+
+        ref = sciStudent; // Parent class reference to ScienceStudent
+        System.out.println("Dynamic Polymorphism (ScienceStudent):");
+        ref.compute(); // Will call overridden compute() of ScienceStudent
+        System.out.println();
+
+        ref = artsStudent; // Parent class reference to ArtsStudent
+        System.out.println("Dynamic Polymorphism (ArtsStudent):");
+        ref.compute(); // Will call parent compute() as ArtsStudent does not override it
+    }
+}
+
+
+// House class
+// Base class
+class Building {
+    int squareFootage;
+    int stories;
+
+    // Default constructor
+    public Building() {
+        this.squareFootage = 0;
+        this.stories = 0;
+    }
+
+    // Parameterized constructor
+    public Building(int squareFootage, int stories) {
+        this.squareFootage = squareFootage;
+        this.stories = stories;
+    }
+
+    // Display method
+    public void displayDetails() {
+        System.out.println("Building Details:");
+        System.out.println("Square Footage: " + squareFootage);
+        System.out.println("Stories: " + stories);
+    }
+}
+
+// House class
+class House extends Building {
+    int bedrooms;
+    int baths;
+
+    // Default constructor
+    public House() {
+        super(); // calls Building default constructor
+        this.bedrooms = 0;
+        this.baths = 0;
+    }
+
+    // Parameterized constructor
+    public House(int squareFootage, int stories, int bedrooms, int baths) {
+        super(squareFootage, stories); // calls Building parameterized constructor
+        this.bedrooms = bedrooms;
+        this.baths = baths;
+    }
+
+    // Display method
+    public void displayDetails() {
+        System.out.println("House Details:");
+        super.displayDetails();
+        System.out.println("Bedrooms: " + bedrooms);
+        System.out.println("Baths: " + baths);
+    }
+}
+
+// School class
+class School extends Building {
+    int classrooms;
+    String gradeLevel;
+
+    // Default constructor
+    public School() {
+        super(); // calls Building default constructor
+        this.classrooms = 0;
+        this.gradeLevel = "Not specified";
+    }
+
+    // Parameterized constructor
+    public School(int squareFootage, int stories, int classrooms, String gradeLevel) {
+        super(squareFootage, stories); // calls Building parameterized constructor
+        this.classrooms = classrooms;
+        this.gradeLevel = gradeLevel;
+    }
+
+    // Display method
+    public void displayDetails() {
+        System.out.println("School Details:");
+        super.displayDetails();
+        System.out.println("Classrooms: " + classrooms);
+        System.out.println("Grade Level: " + gradeLevel);
+    }
+}
+
+// Main class to demonstrate
+public class Main {
+    public static void main(String[] args) {
+        // Building object
+        Building building = new Building(5000, 3);
+        building.displayDetails();
+        System.out.println();
+
+        // House object
+        House house = new House(2500, 2, 4, 3);
+        house.displayDetails();
+        System.out.println();
+
+        // School object
+        School school = new School(10000, 4, 20, "Elementary");
+        school.displayDetails();
+    }
+}
+
+
+// Bank Account
+import java.util.Scanner;
+
+// Base class
+class Account {
+    String customerName;
+    String accountNumber;
+    String accountType;
+    double balance;
+
+    // Constructor
+    Account(String customerName, String accountNumber, String accountType, double initialBalance) {
+        this.customerName = customerName;
+        this.accountNumber = accountNumber;
+        this.accountType = accountType;
+        this.balance = initialBalance;
+    }
+
+    // Deposit method
+    void deposit(double amount) {
+        if (amount > 0) {
+            balance += amount;
+            System.out.println("Deposited: " + amount);
+        } else {
+            System.out.println("Invalid deposit amount.");
+        }
+    }
+
+    // Display balance
+    void displayBalance() {
+        System.out.println("Account Holder: " + customerName);
+        System.out.println("Account Number: " + accountNumber);
+        System.out.println("Account Type: " + accountType);
+        System.out.println("Current Balance: " + balance);
+    }
+}
+
+// Savings Account class
+class SavingsAccount extends Account {
+    final double interestRate = 0.04; // 4% interest
+
+    SavingsAccount(String customerName, String accountNumber, double initialBalance) {
+        super(customerName, accountNumber, "Savings", initialBalance);
+    }
+
+    // Compute and deposit interest
+    void computeInterest() {
+        double interest = balance * interestRate;
+        balance += interest;
+        System.out.println("Interest of " + interest + " added to balance.");
+    }
+
+    // Withdraw method
+    void withdraw(double amount) {
+        if (amount <= balance) {
+            balance -= amount;
+            System.out.println("Withdrawn: " + amount);
+        } else {
+            System.out.println("Insufficient balance for withdrawal.");
+        }
+    }
+}
+
+// Current Account class
+class CurrentAccount extends Account {
+    final double minimumBalance = 5000.0;
+    final double serviceCharge = 500.0;
+
+    CurrentAccount(String customerName, String accountNumber, double initialBalance) {
+        super(customerName, accountNumber, "Current", initialBalance);
+    }
+
+    // Check minimum balance and impose penalty
+    void checkMinimumBalance() {
+        if (balance < minimumBalance) {
+            balance -= serviceCharge;
+            System.out.println("Service charge of " + serviceCharge + " imposed for low balance.");
+        } else {
+            System.out.println("Minimum balance maintained.");
+        }
+    }
+
+    // Withdraw method
+    void withdraw(double amount) {
+        if (amount <= balance) {
+            balance -= amount;
+            System.out.println("Withdrawn: " + amount);
+            checkMinimumBalance();
+        } else {
+            System.out.println("Insufficient balance for withdrawal.");
+        }
+    }
+}
+
+// Main class to test the program
+    public class main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // Create Savings Account with user input
+        System.out.println("Creating Savings Account...");
+        System.out.print("Enter Customer Name: ");
+        String saName = sc.nextLine();
+        System.out.print("Enter Account Number: ");
+        String saNumber = sc.nextLine();
+        System.out.print("Enter Initial Balance: ");
+        double saBalance = sc.nextDouble();
+
+        SavingsAccount sa = new SavingsAccount(saName, saNumber, saBalance);
+        sa.displayBalance();
+
+        System.out.print("Enter amount to deposit: ");
+        sa.deposit(sc.nextDouble());
+
+        sa.computeInterest();
+
+        System.out.print("Enter amount to withdraw: ");
+        sa.withdraw(sc.nextDouble());
+
+        sa.displayBalance();
+        System.out.println();
+
+        sc.nextLine(); // Clear the buffer
+
+        // Create Current Account with user input
+        System.out.println("Creating Current Account...");
+        System.out.print("Enter Customer Name: ");
+        String caName = sc.nextLine();
+        System.out.print("Enter Account Number: ");
+        String caNumber = sc.nextLine();
+        System.out.print("Enter Initial Balance: ");
+        double caBalance = sc.nextDouble();
+
+        CurrentAccount ca = new CurrentAccount(caName, caNumber, caBalance);
+        ca.displayBalance();
+
+        System.out.print("Enter amount to deposit: ");
+        ca.deposit(sc.nextDouble());
+
+        System.out.print("Enter amount to withdraw: ");
+        ca.withdraw(sc.nextDouble());
+
+        ca.displayBalance();
+
+        sc.close();
+    }
+}
+
+
