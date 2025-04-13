@@ -1,75 +1,66 @@
-import java.util.Scanner;
+import java.util.*;
 
-// Base class
 class Account {
-    String customerName;
-    String accountNumber;
-    String accountType;
+    String name;
+    int account_number;
+    String account_type;
     double balance;
 
-    // Constructor
-    Account(String customerName, String accountNumber, String accountType, double initialBalance) {
-        this.customerName = customerName;
-        this.accountNumber = accountNumber;
-        this.accountType = accountType;
-        this.balance = initialBalance;
+    Account(String name, int account_number, String account_type, double balance) {
+        this.name = name;
+        this.account_number = account_number;
+        this.account_type = account_type;
+        this.balance = balance;
     }
 
-    // Deposit method
     void deposit(double amount) {
         if (amount > 0) {
             balance += amount;
-            System.out.println("Deposited: " + amount);
-        } else {
-            System.out.println("Invalid deposit amount.");
+            System.out.println("Amount Deposited = " + amount);
+            System.out.println("Balance = " + balance);
         }
     }
 
-    // Display balance
-    void displayBalance() {
-        System.out.println("Account Holder: " + customerName);
-        System.out.println("Account Number: " + accountNumber);
-        System.out.println("Account Type: " + accountType);
-        System.out.println("Current Balance: " + balance);
+    void display() {
+        System.out.println("Customer name = " + name);
+        System.out.println("Customer Account number = " + account_number);
+        System.out.println("Customer Account type = " + account_type);
+        System.out.println("Current Balance = " + balance);
     }
 }
 
-// Savings Account class
-class SavingsAccount extends Account {
-    final double interestRate = 0.04; // 4% interest
+class Savings_account extends Account {
+    final double roi = 0.4;
 
-    SavingsAccount(String customerName, String accountNumber, double initialBalance) {
-        super(customerName, accountNumber, "Savings", initialBalance);
+    Savings_account(String name, int account_number, String account_type, double balance) {
+        super(name, account_number, account_type, balance);
     }
 
-    // Compute and deposit interest
-    void computeInterest() {
-        double interest = balance * interestRate;
+    void interest() {
+        double interest = balance * roi;
         balance += interest;
-        System.out.println("Interest of " + interest + " added to balance.");
+        System.out.println("Interest of " + roi + " is added: " + interest);
     }
 
-    // Withdraw method
     void withdraw(double amount) {
         if (amount <= balance) {
             balance -= amount;
-            System.out.println("Withdrawn: " + amount);
+            System.out.println("Amount withdrawn: " + amount);
+            System.out.println("Balance after withdrawal: " + balance);
         } else {
-            System.out.println("Insufficient balance for withdrawal.");
+            System.out.println("No sufficient bank balance");
         }
     }
 }
 
-// Current Account class
-class CurrentAccount extends Account {
+class Current_account extends Account {
     final double minimumBalance = 5000.0;
     final double serviceCharge = 500.0;
 
-    CurrentAccount(String customerName, String accountNumber, double initialBalance) {
-        super(customerName, accountNumber, "Current", initialBalance);
+    Current_account(String name, int account_number,String account_type, double balance) {
+        super(name, account_number, account_type, balance);
     }
 
-    // Check minimum balance and impose penalty
     void checkMinimumBalance() {
         if (balance < minimumBalance) {
             balance -= serviceCharge;
@@ -79,7 +70,6 @@ class CurrentAccount extends Account {
         }
     }
 
-    // Withdraw method
     void withdraw(double amount) {
         if (amount <= balance) {
             balance -= amount;
@@ -91,8 +81,7 @@ class CurrentAccount extends Account {
     }
 }
 
-// Main class to test the program
-    public class main {
+public class main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -101,22 +90,22 @@ class CurrentAccount extends Account {
         System.out.print("Enter Customer Name: ");
         String saName = sc.nextLine();
         System.out.print("Enter Account Number: ");
-        String saNumber = sc.nextLine();
+        int saNumber = sc.nextInt();
         System.out.print("Enter Initial Balance: ");
         double saBalance = sc.nextDouble();
 
-        SavingsAccount sa = new SavingsAccount(saName, saNumber, saBalance);
-        sa.displayBalance();
+        Savings_account sa = new Savings_account(saName, saNumber, "Savings", saBalance);
+        sa.display();
 
         System.out.print("Enter amount to deposit: ");
         sa.deposit(sc.nextDouble());
 
-        sa.computeInterest();
+        sa.interest();
 
         System.out.print("Enter amount to withdraw: ");
         sa.withdraw(sc.nextDouble());
 
-        sa.displayBalance();
+        sa.display();
         System.out.println();
 
         sc.nextLine(); // Clear the buffer
@@ -126,12 +115,12 @@ class CurrentAccount extends Account {
         System.out.print("Enter Customer Name: ");
         String caName = sc.nextLine();
         System.out.print("Enter Account Number: ");
-        String caNumber = sc.nextLine();
+        int caNumber = sc.nextInt();
         System.out.print("Enter Initial Balance: ");
         double caBalance = sc.nextDouble();
 
-        CurrentAccount ca = new CurrentAccount(caName, caNumber, caBalance);
-        ca.displayBalance();
+        Current_account ca = new Current_account(caName, caNumber,"Current", caBalance);
+        ca.display();
 
         System.out.print("Enter amount to deposit: ");
         ca.deposit(sc.nextDouble());
@@ -139,10 +128,6 @@ class CurrentAccount extends Account {
         System.out.print("Enter amount to withdraw: ");
         ca.withdraw(sc.nextDouble());
 
-        ca.displayBalance();
-
-        sc.close();
+        ca.display();
     }
 }
-
-
